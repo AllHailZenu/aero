@@ -1,0 +1,13 @@
+with open(r'textfile1.txt', 'r', encoding="utf-8") as file1:
+    with open(r'textfile2.txt', 'r', encoding="utf-8") as file2:
+        same = set(file1).intersection(file2)
+
+same.discard("\n")
+
+with open(r"textfile3.txt", 'w', encoding="utf-8") as outputfile:
+    for line in same:
+        outputfile.write(line)
+
+outputfile.close()
+file1.close()
+file2.close()
